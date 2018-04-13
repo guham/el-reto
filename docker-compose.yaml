@@ -1,0 +1,17 @@
+version: '3.2'
+
+services:
+  app:
+    build:
+      context: .
+    user: "node"
+    volumes:
+      - .:/usr/src/app:rw,cached
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "49160:8080"
+    expose:
+      - "8080"
+    working_dir: /usr/src/app
+    command: "npm start"
