@@ -41,7 +41,11 @@ logs: ## Show logs
 assets: ## Build assets
 	$(EXEC_APP) ./node_modules/.bin/tailwind build public/style.css -o ./public/app.css
 
-.PHONY: build kill install reset start stop clean ps logs assets
+eslint:	## eslint
+eslint: node_modules
+	$(EXEC_APP) ./node_modules/.bin/eslint --fix-dry-run ./
+
+.PHONY: build kill install reset start stop clean ps logs assets eslint
 
 node_modules: package.lock
 	$(NPM) install

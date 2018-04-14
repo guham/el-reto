@@ -26,9 +26,9 @@ function process(e) {
       messages.scrollTop(messages.prop('scrollHeight'));
     },
     error: (jqXHR, status, errorThrown) => {
-      // todo
+      alert(status+': '+errorThrown);
     },
-    complete: (jqXHR, status) => {
+    complete: () => {
       message.val('');
     }
   });
