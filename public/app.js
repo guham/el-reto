@@ -21,8 +21,8 @@ function process(e) {
     url: 'send',
     data: $.param(data),
     timeout: 20000,
-    success: data => {
-      $('div[data-qid="'+data.qid+'"]').after(data.response);
+    success: res => {
+      $('div[data-qid="'+res.qid+'"]').after(res.response);
       messages.scrollTop(messages.prop('scrollHeight'));
     },
     error: (jqXHR, status, errorThrown) => {
