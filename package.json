@@ -13,6 +13,7 @@
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "nodemon": "^1.17.3",
     "pug": "^2.0.3",
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
@@ -20,7 +21,6 @@
     "tailwindcss": "^0.5.2"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "nodemon": "^1.17.3"
+    "eslint": "^4.19.1"
   }
 }
