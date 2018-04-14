@@ -9,15 +9,20 @@ function process(e) {
     return;
   }
 
-  messages.append('<div class="mb-4 h-auto rounded p-3 bg-blue-light text-right">'+message.val()+'</div>');
+  let data = $('form').serializeArray(),
+      id = '_' + Math.random().toString(36).substr(2, 9);
+
+  data.push({name: 'id', value: id});
+
+  messages.append('<div data-qid="'+id+'" class="mb-4 h-auto rounded p-3 bg-blue-light text-right">'+message.val()+'</div>');
 
   $.ajax({
     type: 'POST',
     url: 'send',
-    data: $('form').serialize(),
+    data: $.param(data),
     timeout: 20000,
     success: data => {
-      messages.append(data);
+      $('div[data-qid="'+data.qid+'"]').after(data.response);
       messages.scrollTop(messages.prop('scrollHeight'));
     },
     error: (jqXHR, status, errorThrown) => {

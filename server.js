@@ -5,6 +5,7 @@ const favicon = require('serve-favicon');
 const path = require('path');
 const bodyParser = require('body-parser');
 const rp = require('request-promise');
+const messageService = require('./services/messageService');
 require('dotenv').config();
 
 const PORT = 8080;
@@ -48,6 +49,7 @@ app.route('/')
 app.route('/send')
   .post((req, res) => {
     let options = JSON.parse(JSON.stringify(API_OPTIONS));
+    let questionId = req.body.id;
     options.qs.question = req.body.q;
 
     rp(options)
@@ -58,12 +60,12 @@ app.route('/send')
         if (!message.length) {
           message = response.current_response.answer_complement;
         }
-        res.send('<div class="mb-4 h-auto rounded p-3 bg-grey-light">'+message+'</div>');
+        res.send(messageService().createResponse(questionId, message));
       })
       .catch(err => {
         console.log(err);
         console.log('\r');
-        res.send('<div class="mb-4 h-auto rounded p-3 bg-grey-light">'+err.message+'</div>');
+        res.send(messageService().createResponse(questionId, err.message));
       });
   });
 

@@ -2,6 +2,7 @@
 
 - Node.js: 8.11.1
 - npm: 5.6.0
+- Express: 4.x
 
 ##  Requirements
 
