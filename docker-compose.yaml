@@ -10,8 +10,8 @@ services:
     environment:
       - NODE_ENV=${ENV}
     ports:
-      - "49160:8080"
+      - "49160:${PORT}"
     expose:
-      - "8080"
+      - "${PORT}"
     working_dir: /usr/src/app
     command: "npm start"

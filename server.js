@@ -8,8 +8,8 @@ const rp = require('request-promise');
 const messageService = require('./services/messageService');
 require('dotenv').config();
 
-const PORT = 8080;
-const HOST = '0.0.0.0';
+const PORT = process.env.PORT;
+const HOST = process.env.HOST;
 
 const POKEMON_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const POKEAPI = 'https://pokeapi.co/api/v2/pokemon/';
