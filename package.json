@@ -8,7 +8,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "npm install && ./node_modules/nodemon/bin/nodemon.js -w ./ -w views -w services -w .env -e js,pug,env server.js"
+    "dev": "npm install && ./node_modules/nodemon/bin/nodemon.js -w ./ -w views -w services -w .env -e js,pug,env server.js",
+    "postinstall": "./node_modules/.bin/tailwind build public/style.css -o ./public/app.css"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
