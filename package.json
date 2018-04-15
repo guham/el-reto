@@ -7,8 +7,8 @@
   "repository": "https://github.com/guham/el-reto",
   "main": "server.js",
   "scripts": {
-    "production": "node server.js",
-    "start": "npm install && ./node_modules/nodemon/bin/nodemon.js -w ./ -w views -w services -w .env -e js,pug,env server.js"
+    "start": "node server.js",
+    "dev": "npm install && ./node_modules/nodemon/bin/nodemon.js -w ./ -w views -w services -w .env -e js,pug,env server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
