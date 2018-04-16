@@ -14,7 +14,8 @@ function process(e) {
 
   data.push({name: 'id', value: id});
 
-  messages.append('<div data-qid="'+id+'" class="mb-4 h-auto rounded p-3 bg-blue-light text-right">'+message.val()+'</div>');
+  messages.append('<div data-qid="'+id+'" class="mb-2 lg:mb-4 h-auto rounded p-3 bg-blue-light text-right">'+message.val()+'</div>');
+  message.val('');
 
   $.ajax({
     type: 'POST',
@@ -27,9 +28,6 @@ function process(e) {
     },
     error: (jqXHR, status, errorThrown) => {
       alert(status+': '+errorThrown);
-    },
-    complete: () => {
-      message.val('');
     }
   });
 }

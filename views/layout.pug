@@ -9,11 +9,11 @@ html.bg-grey-lightest.antialiased
 
     body
         div.bg-white.border-b.border-grey-lighter.w-full
-            div.flex.items-center.h-16
+            div(class='flex items-center h-8 lg:h-16')
                 div(class='w-full text-center')
-                    a(href='/' class='inline-block m-2') Inicio
-                    h1(class='text-black inline-block m-2') El Reto
-                    a(href='/infos' class='inline-block m-2') informaciones
+                    a(href='/' class='inline-block lg:m-2') Inicio
+                    h1(class='text-black inline-block ml-2 mr-2 text-base lg:text-xl') El Reto
+                    a(href='/infos' class='inline-block lg:m-2') Informaciones
         block content
         block bottom_scripts
             script(src='app.js')
