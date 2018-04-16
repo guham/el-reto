@@ -9,6 +9,8 @@ function process(e) {
     return;
   }
 
+  // generate unique ID for this message
+  // in order to append bot response below the original question
   let data = $('form').serializeArray(),
       id = '_' + Math.random().toString(36).substr(2, 9);
 

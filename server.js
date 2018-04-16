@@ -76,6 +76,7 @@ app.route('/send')
       });
   });
 
+// "infos" route shows all pokemon details
 app.route('/infos')
   .get((req, res) => {
     let promises = POKEMON_IDS.map((id) => {
@@ -136,6 +137,10 @@ app.route('/infos')
     Promise.all(promises).then(infos => {
       console.log('Fetched informations from Pokeapi: done.');
       res.render('infos', {infos: JSON.stringify(infos, null, 4)});
+    }).catch(reason => {
+      console.log('Error while fetching informations from Pokeapi.');
+      console.log('Error: %s', reason);
+      res.render('infos', {infos: reason});
     });
   });
 
