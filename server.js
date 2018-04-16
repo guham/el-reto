@@ -56,8 +56,15 @@ app.route('/send')
       .then(response => {
         console.log(response);
         console.log('\r');
-        let message = response.current_response.message;
-        if (!message.length) {
+        let message = '',
+            hasCurrentResponse =  response && response.hasOwnProperty('current_response');
+
+        if (hasCurrentResponse
+          && response.current_response.hasOwnProperty('message')
+          && response.current_response.message.length) {
+          message = response.current_response.message;
+        }
+        if (hasCurrentResponse && !message.length && response.current_response.hasOwnProperty('answer_complement')) {
           message = response.current_response.answer_complement;
         }
         res.send(messageService().createResponse(questionId, message));
